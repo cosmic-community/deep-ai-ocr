@@ -88,8 +88,8 @@ function isShowcase(obj: CosmicObject): obj is Showcase {
   return obj.type === 'showcases';
 }
 
-// Utility types
-type OptionalMetadata<T> = Partial<T['metadata']>;
+// Utility types - Fixed generic constraint
+type OptionalMetadata<T extends CosmicObject> = Partial<T['metadata']>;
 type CreatePageData = Omit<Page, 'id' | 'created_at' | 'modified_at'>;
 
 // Component prop types
